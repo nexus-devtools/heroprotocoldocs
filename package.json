@@ -65,7 +65,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "homepage": "http://ajbdev.github.io/heroprotocoldocs",
+  "homepage": "http://nexus-devtools.github.io/heroprotocoldocs",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
