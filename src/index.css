@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700|Lato:400,400i,700');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Lato,sans-serif;
+  background: #231a2b;
+  color: #dbd8de;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Arvo, sans-serif;
+  color: #0a3e61;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.CodeMirror  {
+  border-radius: 5px;
+}
+
+.react-json-view {
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+code {
+  background: #e4e3e4;
+  padding: 2px 4px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  background: #e9e6ea;
+  padding: 6px;
+  border: 1px solid #ccc;
+}

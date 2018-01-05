@@ -1,0 +1,60 @@
+.ReplayTree {
+    list-style-type: none;
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+    padding: 0;
+    text-align: left;
+}
+
+.ReplayTree li {
+    padding: .2rem .5rem;
+}
+
+li.branch {
+    margin-left: .2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+li.branch::before {
+    content: '►';
+    font-size: 12px;
+    vertical-align: middle;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+li.branch.expanded::before {
+    content: '▼';
+}
+
+.node {
+    margin-left: 1rem;
+    margin-top: .2rem;
+}
+
+.node.undefined {
+    font-style: italic;
+    color: rgb(120,120,120)
+}
+
+.prop {
+    color: rgb(64, 83, 255)
+}
+
+.value {
+    color: rgb(206, 33, 33)
+}
+
+.null .value {
+    color: rgb(120,120,120)
+}
+
+.node.closed {
+    display: inline;
+    margin-left: 0;
+}
+
+.node.expanded {
+    display: block;
+}
