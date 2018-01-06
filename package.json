@@ -1,0 +1,28 @@
+{
+  "name": "heroprotocoldocs",
+  "version": "0.1.0",
+  "description": "Interface for accessing Heroes of the Storm replay game information",
+  "main": "lib/heroprotocoldocs.js",
+  "scripts": {
+    "build": "browserify -t bulkify src/index.js -o lib/heroprotocoldocs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexus-devtools/heroprotocoldocs.git"
+  },
+  "keywords": [
+    "heroes of the storm",
+    "blizzard"
+  ],
+  "author": "Andy Baird",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexus-devtools/heroprotocoldocs/issues"
+  },
+  "homepage": "https://github.com/nexus-devtools/heroprotocoldocs#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "webpack": "^3.10.0"
+  }
+}
