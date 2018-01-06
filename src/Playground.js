@@ -22,8 +22,6 @@ export default class extends Component {
     componentDidMount() {
         this.setState({
             replay: parser.get()
-        }, () => {
-            this.runCode()
         })        
     }
 
@@ -79,7 +77,7 @@ return module.exports
     saveSnippet() {
         let code = encodeURIComponent(this.state.code)
 
-        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/master/src/snippets?value=' + code)
+        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/docs/src/snippets?value=' + code)
     }
 
     runKey() {
