@@ -83,11 +83,11 @@ return module.exports
     saveSnippet() {
         let code = encodeURIComponent(this.state.code)
 
-        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/master/src/examples?value=' + code)
+        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/docs/src/examples?value=' + code)
     }
 
     openExamples() {
-        window.open('https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/examples')
+        window.open('https://github.com/nexus-devtools/heroprotocoldocs/tree/docs/src/examples')
     }
 
     runKey() {
@@ -107,7 +107,7 @@ return module.exports
                     <br /><br />
                     Your function should simply return the value that you want to see results for. That value that will be displayed in the REPL below. 
                     <br /><br />
-                    <a target="_blank" href="https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/examples">See other code examples</a> to see how the playground can be used.
+                    <a target="_blank" href="https://github.com/nexus-devtools/heroprotocoldocs/docs/master/src/examples">See other code examples</a> to see how the playground can be used.
                 </p>
                 <h3>Selecting a replay</h3>
                 <p>
