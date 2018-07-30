@@ -6,6 +6,7 @@ import objectDepth from 'object-depth'
 import objectSize from 'object-sizeof'
 import {Button} from './Styles'
 import {UploadReplay} from './UploadReplay'
+import {Link} from 'react-router-dom'
 
 export default class extends Component {
     constructor() {
@@ -15,14 +16,9 @@ export default class extends Component {
             result: null,
             replay: null,
             collapsed: true,
+            warningLoaded: false,
             code: this.getDefaultCode(),
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            replay: parser.get()
-        })        
     }
 
     getDefaultCode() {
@@ -39,6 +35,16 @@ export default class extends Component {
     }
 
     runCode() {
+        if (!this.state.replay) {
+            this.setState({
+                replay: parser.get()
+            }, this.execute)
+        } else {
+            this.execute();
+        }
+    }
+
+    execute() {
 
         let code = `
 module = { exports: () => {} }        
@@ -77,7 +83,11 @@ return module.exports
     saveSnippet() {
         let code = encodeURIComponent(this.state.code)
 
-        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/docs/src/snippets?value=' + code)
+        window.open('https://github.com/nexus-devtools/heroprotocoldocs/new/master/src/examples?value=' + code)
+    }
+
+    openExamples() {
+        window.open('https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/examples')
     }
 
     runKey() {
@@ -95,25 +105,27 @@ return module.exports
                 <p>
                     Enter in javascript code into the function below. The <code>replay</code> parameter is an object containing all parts of the replay (with the same property names as you see on the sidebar on the left).
                     <br /><br />
-                    Your function should return a value that will be dispalyed in the REPL below. 
-                    {' '}
-                    <a target="_blank" href="https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/snippets">See snippets for examples.</a>
+                    Your function should simply return the value that you want to see results for. That value that will be displayed in the REPL below. 
+                    <br /><br />
+                    <a target="_blank" href="https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/examples">See other code examples</a> to see how the playground can be used.
                 </p>
                 <h3>Selecting a replay</h3>
                 <p>
                     You can load your own replays by clicking select replay. 
                     Navigate to your Heroes of the Storm replay directory and select a replay to load it into the playground.
+                    <Link to="/replayFolder">Where can I find replay files on my computer?</Link> 
                 </p>
-                <h3>Save as snippet</h3>
+                <h3>Saving code</h3>
                 <p>
-                    Clicking this button will prompt you to submit a pull request against this repo with a new file added to the <code>src/snippets</code> directory.
-                    This is a great way to share useful information about the replay structure with other people in a simple way. Please do not hesitate to send in your PR!
+                    Clicking the Save Code button will prompt you to submit a pull request against this repo with a new file added to the <code>src/examples</code> directory.
+                    This is a great way to share useful information about the replay structure with other people in a simple way. Please do not hesitate to send in a PR!
                 </p>
             </div>
         )
     }
 
     render() {
+
         return (
             <div>
                 <h1>Playground</h1>
@@ -134,7 +146,12 @@ return module.exports
                 <Button
                     onClick={this
                     .saveSnippet
-                    .bind(this)}>Save as snippet</Button>
+                    .bind(this)}>Save Code</Button>
+                <Button
+                    className="link"
+                    onClick={this
+                    .openExamples
+                    .bind(this)}>Code Examples...</Button>
                 <Repl
                     code={this.state.code}
                     onChange={(code) => {

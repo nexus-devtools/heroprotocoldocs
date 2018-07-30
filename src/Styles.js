@@ -8,6 +8,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 5px;
     min-height: 30px;
+    font-size: 13px;
     vertical-align: middle;
     margin: 0 8px 0 0;
     padding: 4px 12px;
@@ -19,6 +20,14 @@ export const Button = styled.button`
     }
     &.right {
         float: right;
+    }
+    &.link {
+        background: transparent;
+        color: #745b8c;
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `
 

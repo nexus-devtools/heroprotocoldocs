@@ -75,7 +75,6 @@ export default class extends Component {
             <li><NavLink exact to="/">Introduction</NavLink></li>
             <TableOfContents LinkElement={NavLink} />
             <li><NavLink to="/playground">Playground</NavLink></li>
-            <li><a href="https://github.com/nexus-devtools/heroprotocoldocs/tree/master/src/snippets" target="_blank">Snippets</a></li>
           </ul>
         </Sidebar>
         <Content>
